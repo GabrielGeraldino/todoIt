@@ -1,0 +1,21 @@
+{
+  "overrides": [
+    {
+      "files": ["*.ts", "*.css", "*.scss", "*.html"],
+      "options": {
+        "printWidth": 90,
+        "singleQuote": true,
+        "jsxBracketSameLine": true,
+        "useTabs": true,
+        "arrowParens": "avoid"
+      }
+    },
+    {
+      "files": ["*.page.html", "*.component.html"],
+      "options": {
+        "printWidth": 100,
+        "parser": "angular"
+      }
+    }
+  ]
+}
