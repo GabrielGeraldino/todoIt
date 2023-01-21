@@ -17,8 +17,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('tasks', views.showTasks),
-    path('new/', views.newTask),
-    path('edit/<int:task_id>', views.edit_restaurant), 
-    path('delete/<int:task_id>', views.delete_restaurant), 
+   path('', views.login_user, name="login"),
 ]
