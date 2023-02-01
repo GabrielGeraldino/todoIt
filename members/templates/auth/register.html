@@ -8,11 +8,10 @@
 		align-items: center;
 	"
 >
-	<h3>Login</h3>
+	<h3>Registro</h3>
 	<div class="card" style="max-width: 300px; padding: 15px">
-		<form action="" method="post">
+		<form action="register" method="post">
 			{% csrf_token %}
-
 			<div class="mb-3">
 				<label for="email" class="form-label">Email</label>
 				<input
@@ -20,7 +19,7 @@
 					class="form-control"
 					id="email"
 					aria-describedby="emailHelp"
-					name="username"
+					name="email"
 				/>
 			</div>
 			<div class="mb-3">
@@ -28,8 +27,8 @@
 				<input type="password" class="form-control" id="password" name="password" />
 			</div>
 
-			<button type="submit" class="btn btn-primary">Entrar</button>
-			<a href="{% url 'register' %}" class="btn btn-secondary">Cadastre-se</a>
+			<button type="submit" class="btn btn-primary">Cadastrar</button>
+			<a href="{% url 'login' %}" type="submit" class="btn btn-secondary">Login</a>
 		</form>
 	</div>
 </div>

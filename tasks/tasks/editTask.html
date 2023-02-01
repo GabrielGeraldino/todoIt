@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<title>Nova Tarefa</title>
+	</head>
+	<body>
+		<div class="container mt-5">
+			<h3>Editar Tarefa</h3>
+			<form action="{% url 'edit_task' task.id %}" method="post">
+				{% csrf_token %}
+				<div class="form-group">
+					<label for="title">Título</label>
+					<input
+						type="text"
+						class="form-control"
+						id="title"
+						name="title"
+						value="{{ task.title }}"
+						required
+					/>
+				</div>
+				<div class="form-group">
+					<label for="description">Descrição</label>
+					<textarea
+						class="form-control"
+						id="description"
+						name="description"
+						rows="3"
+						required
+					>
+{{ task.description }}</textarea
+					>
+				</div>
+
+				<div class="form-group">
+					<label for="category">Categoria</label>
+					<select class="form-control" id="category" name="category">
+					  <option value="pessoal" {% if task.category == 'pessoal' %}selected{% endif %}>Pessoal</option>
+					  <option value="trabalho" {% if task.category == 'trabalho' %}selected{% endif %}>Trabalho</option>
+					  <option value="estudo" {% if task.category == 'estudo' %}selected{% endif %}>Estudo</option>
+					</select>
+				  </div>
+
+				<div class="form-group">
+					<label for="endDate">Data de Vencimento</label>
+					<input
+						type="date"
+						class="form-control"
+						id="endDate"
+						name="endDate"
+						value="{{ task.endDate | date:'Y-m-d' }}"
+					/>
+				</div>
+				<button type="submit" class="btn btn-primary">Salvar</button>
+			</form>
+		</div>
+	</body>
+</html>
+
+{% endblock %}
